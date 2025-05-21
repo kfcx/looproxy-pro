@@ -6,7 +6,7 @@ import threading
 
 def function_to_run():
     count = 0
-    url = f"https://{os.environ.get('PROJECT_DOMAIN')}/health"
+    url = f"{os.environ.get('PROJECT_DOMAIN')}/health"
     while True:
         if count > 30:
             break
