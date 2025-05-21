@@ -94,7 +94,7 @@ if __name__ == "__main__":
     config = {
         "app": "main:app",
         "host": "0.0.0.0",
-        "port": int(os.getenv("PROXY_API_KEY", "8000")),
+        "port": int(os.getenv("PORT", "8000")),
         "proxy_headers": True,
         "forwarded_allow_ips": "*",
         "access_log": False,
