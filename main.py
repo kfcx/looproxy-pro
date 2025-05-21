@@ -88,6 +88,11 @@ def health():
     return JSONResponse(content={"status": "healthy"})
 
 
+@app.get("/")
+def index():
+    return Response(content="looproxy pro is running...")
+    
+
 if __name__ == "__main__":
     import os, platform, uvicorn
 
