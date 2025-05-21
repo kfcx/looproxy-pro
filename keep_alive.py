@@ -1,6 +1,6 @@
 # keep_alive.py
 import time
-import httpx
+from curl_cffi import requests
 import os
 import threading
 
@@ -11,7 +11,7 @@ def function_to_run():
         if count > 30:
             break
         try:
-            httpx.get(url).close()
+            requests.get(url)
             print("Keeping alive...")
         except:
             print("Failed to keep alive")
