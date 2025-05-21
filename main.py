@@ -1,3 +1,4 @@
+import keep_alive
 from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse, StreamingResponse, Response
 from curl_cffi.requests.exceptions import (
