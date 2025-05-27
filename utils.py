@@ -8,7 +8,7 @@ from curl_cffi import CurlOpt
 from schemas import ProxyRequest, BROWSER_TYPES, HTTPMethod
 
 
-def pick_impersonate(user_choice: str | None) -> str:
+def pick_impersonate(user_choice):
     """校验或随机挑一个浏览器指纹"""
     if user_choice:
         if user_choice not in BROWSER_TYPES:
@@ -27,7 +27,7 @@ def build_curl_opts(timeout_ms: int):
     }
 
 
-async def perform_final_hop(req: ProxyRequest, impersonate: str) -> curl.Response:
+async def perform_final_hop(req: ProxyRequest, impersonate: str):
     """
     真正把请求发到目标站点的最后一跳。
     依旧放在线程池里执行，确保 uvloop 事件循环无阻塞
@@ -50,7 +50,7 @@ async def perform_final_hop(req: ProxyRequest, impersonate: str) -> curl.Respons
 
 async def forward_to_next_hop(
         next_url: str, nested_req: ProxyRequest, impersonate: str
-) -> curl.Response:
+):
     """
     把当前 JSON 负载 POST 给链路中的下一台代理服务。
     使用 curl_cffi 直接 POST；对方再继续递归或最终落地。
