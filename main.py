@@ -12,7 +12,7 @@ from utils import pick_impersonate, perform_final_hop, forward_to_next_hop, rend
 app = FastAPI(title="Proxy Chain Service", version="1.1.0")
 
 
-def check_key(apikey: str | None):
+def check_key(apikey):
     if API_KEY_EXPECTED and apikey != API_KEY_EXPECTED:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                             detail="Invalid API key")
