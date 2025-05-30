@@ -9,6 +9,7 @@ from curl_cffi.requests.exceptions import (
 from schemas import ProxyRequest, BROWSER_TYPES, API_KEY_EXPECTED
 from utils import pick_impersonate, perform_final_hop, forward_to_next_hop, render_response
 
+# https://curl-cffi.readthedocs.io/en/latest/impersonate.html
 app = FastAPI(title="Proxy Chain Service", version="1.1.0")
 
 
